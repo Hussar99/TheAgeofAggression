@@ -15,12 +15,13 @@ public class Enemy : MonoBehaviour {
 
 
     // Unity calls this function automatically
-    // When our enemy touch any other object
+    // When our bullet touches any other object
     private void OnCollisionEnter2D(Collision2D collsion)
     {
 
-        //Check if the thing that we collided with is the player (aka has a Player script)
+        //Check if the thing that we collided with is the player or bullet
         Player playerScript = collsion.collider.GetComponent<Player>();
+        PlayersBullet playersBulletScript = collsion.collider.GetComponent<PlayersBullet>();
         // Only do something if the thing we run into was in fact the player (aka playerScript is not null)
 
         if (playerScript != null)
@@ -31,28 +32,26 @@ public class Enemy : MonoBehaviour {
             playerScript.Kill();
         }
 
+        else
 
-        // Unity calls this function when our coin touches any other object.
-        // If the players bullet touches us, the enemy should vanish and the score should go up.
-
-
-        // Check if the thing we touched was the Player.
-        PlayersBullet playersBulletscript = collision.collider.GetComponent<playersBullet>();
-
-        // If the thing we touched is the players bullet script, that means it is the player, so...
-        if (playersBulletScript)
+         if (playersBulletScript != null)
         {
-            // We hit the player.
+            // We DID hit the enemy
 
             // Add to the score based on our value.
             scoreObject.AddScore(coinValue);
 
-            // Destroy the gameObject that this script is attached to the coin.
 
+            // Kill the enemy!!!
             Destroy(gameObject);
 
 
         }
+
+
+
+
+
     }
 
 
@@ -67,8 +66,6 @@ public class Enemy : MonoBehaviour {
     {
 
     }
-
-    
 
 
 }

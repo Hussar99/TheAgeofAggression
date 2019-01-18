@@ -13,7 +13,15 @@ public class Player : MonoBehaviour {
     public string horizontalAxis = "Horizontal";
     public string jumpButton = "Jump";
 
- 
+    public GameObject playersBullet;
+    Vector2 bulletPos;
+    public float fireRate = 0.5f;
+    float nextFire = 0.0f;
+
+
+    // Variable to keep a reference to the lives display object.
+    public Lives livesObject;
+
 
 
     // Use this for initialization
@@ -57,6 +65,17 @@ public class Player : MonoBehaviour {
 
         }
 
+
+        if(Input.GetButtonDown ("Fire1") && Time.time > nextFire )
+        {
+
+            nextFire = Time.time + fireRate;
+            fire ();
+
+        }
+
+
+
     }
 
     // Our own function for handling player death
@@ -70,7 +89,23 @@ public class Player : MonoBehaviour {
         // Second, tell unity to load the current level again by passing the build index of our level
         SceneManager.LoadScene(currentLevel.buildIndex);
 
+
     }
+
+    void fire()
+    { bulletPos = transform.position;
+        {
+
+            bulletPos += new Vector2 (+0.79f, +0.29f);
+            Instantiate(playersBullet, bulletPos, Quaternion.identity);
+
+        }
+
+
+    }
+
+
+
 
 
 }
