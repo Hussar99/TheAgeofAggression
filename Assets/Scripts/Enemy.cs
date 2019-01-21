@@ -39,11 +39,16 @@ public class Enemy : MonoBehaviour {
             // We DID hit the enemy
 
             // Add to the score based on our value.
-            scoreObject.AddScore(coinValue);
+
 
 
             // Kill the enemy!!!
             Destroy(gameObject);
+
+
+
+            // Add score per dead enemy!
+            scoreObject.AddScore(coinValue);
 
 
         }

@@ -17,7 +17,8 @@ public class PlayersBullet : MonoBehaviour {
 
         //Check if the thing that we collided with is the player
         Player playerScript = collsion.collider.GetComponent<Player>();
-        
+        Enemy enemyScript = collsion.collider.GetComponent<Enemy>();
+
         // Only do something if the thing we run into was in fact the player (aka playerScript is not null)
 
         if (playerScript != null)
@@ -27,9 +28,19 @@ public class PlayersBullet : MonoBehaviour {
             //KILL THEM!
             playerScript.Kill();
         }
-       
 
-       
+
+        
+
+
+        if (enemyScript != null)
+        {
+            // We DID hit the enemy!
+
+            // Kill the bullet object!!!
+            Destroy(gameObject);
+
+        }
 
 
 
