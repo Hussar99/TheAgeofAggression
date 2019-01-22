@@ -12,6 +12,14 @@ public class Enemy : MonoBehaviour {
     // Variable to hold the coin's poin value.
     // Public so we can change it in the editor.
     public int coinValue;
+    public Animator EnemyAnimator;
+
+
+    public GameObject enemyBullet;
+    Vector2 bulletPos;
+    public float fireRate = 4f;
+    float nextFire = 0.0f;
+
 
 
     // Unity calls this function automatically
@@ -69,8 +77,34 @@ public class Enemy : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        // Firing the Chaos Marines Bolter
+        if (Time.time > nextFire)
+        {
+
+            nextFire = Time.time + fireRate;
+            fire();
+
+        }
+    }
+
+
+    void fire()
+    {
+        bulletPos = transform.position;
+
+        if (enemyBullet != null)
+        {
+
+            bulletPos += new Vector2(-0.79f, +0.29f);
+            Instantiate(enemyBullet, bulletPos, Quaternion.identity);
+
+            EnemyAnimator.SetTrigger("enemyFire");
+
+        }
+
 
     }
+
 
 
 }

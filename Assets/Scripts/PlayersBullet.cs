@@ -60,6 +60,6 @@ public class PlayersBullet : MonoBehaviour {
         // Sets players bullet velocity.
         rb.velocity = new Vector2(velX, velY);
         // Destroys players bullet after 3 seconds
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 1f);
 	}
 }
