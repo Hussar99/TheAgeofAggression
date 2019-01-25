@@ -15,6 +15,7 @@ public class StartButton : MonoBehaviour
 
 
         // Resets the score.
+        Debug.Log("Score cleared");
         PlayerPrefs.DeleteKey("score");
 
 

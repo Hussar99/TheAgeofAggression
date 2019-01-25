@@ -24,19 +24,22 @@ public class HighScores : MonoBehaviour {
         LoadHighScoreData();
 
 
+        Debug.Log("Loading Score for high scores");
         int currentScore = PlayerPrefs.GetInt("score", 0);
+        Debug.Log("Score loaded: "+ currentScore);
 
 
         // Check if we got a new high score.
         bool haveNewHighScore = IsNewHighScore(currentScore);
         if (haveNewHighScore == true)
 
-
+        {
             // Add new score to the data.
             AddScoreToList(currentScore);
 
-        // Save updated data.
-        SaveHighScoreData();
+            // Save updated data.
+            SaveHighScoreData();
+        }
 
         // Update the visual display.
         UpdateVisualDisplay();
@@ -70,6 +73,8 @@ public class HighScores : MonoBehaviour {
 
     }
 
+
+    // Display the visual score.
     private void UpdateVisualDisplay()
     {
 
@@ -82,12 +87,13 @@ public class HighScores : MonoBehaviour {
 
     }
 
+    // Adding new high and it is added higher if if the score is bigger.
     private bool IsNewHighScore(int scoreToCheck)
     {
 
         for (int i = 0; i < highScoreDisplays.Count; ++i)
         {
-            if (scoreToCheck > highScoreData[1])
+            if (scoreToCheck > highScoreData[i])
             {
                 // Our score is higher!
                 // Return to the calling code that we DO have a new high score.

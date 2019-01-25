@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour {
 
         else
 
-         if (playersBulletScript != null)
+         if (playersBulletScript != null && playersBulletScript.isPlayer == true)
         {
             // We DID hit the enemy
 
@@ -57,6 +57,8 @@ public class Enemy : MonoBehaviour {
 
             // Add score per dead enemy!
             scoreObject.AddScore(coinValue);
+
+            Destroy(playersBulletScript.gameObject);
 
 
         }
@@ -87,15 +89,18 @@ public class Enemy : MonoBehaviour {
         }
     }
 
-
+    // Enemy firing the CHAOS BOLTER at the player.
     void fire()
     {
         bulletPos = transform.position;
 
+        // if the enemy has bullet assigned.
         if (enemyBullet != null)
         {
-
+            // Firing the bullet at the level of the enemy bolter (in order not to shoot from or exaple a knee cap).
             bulletPos += new Vector2(-0.79f, +0.29f);
+
+
             Instantiate(enemyBullet, bulletPos, Quaternion.identity);
 
             EnemyAnimator.SetTrigger("enemyFire");

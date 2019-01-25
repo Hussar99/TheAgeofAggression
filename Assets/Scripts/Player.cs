@@ -133,15 +133,18 @@ public class Player : MonoBehaviour {
 
     }
 
+
+    // Player firing function.
     void fire()
     { bulletPos = transform.position;
         {
-
+            // Selecting the exact position where the bullet will spown and start traveling.
             bulletPos += new Vector2 (+0.79f, +0.29f);
             Instantiate(playersBullet, bulletPos, Quaternion.identity);
 
         }
 
+        // Fire the bullet.
         playerAnimator.SetTrigger("fire");
 
 

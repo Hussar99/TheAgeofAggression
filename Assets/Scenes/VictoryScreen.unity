@@ -415,9 +415,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 76b7aecb3b47add4e9192c13fbddd253, type: 3}
-        m_MethodName: set_name
-        m_Mode: 5
+      - m_Target: {fileID: 380714755}
+        m_MethodName: GoToTitle
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -483,6 +483,7 @@ GameObject:
   - component: {fileID: 402178650}
   - component: {fileID: 402178652}
   - component: {fileID: 402178651}
+  - component: {fileID: 402178653}
   m_Layer: 5
   m_Name: PointsText
   m_TagString: Untagged
@@ -505,7 +506,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -387.6, y: 42.8}
+  m_AnchoredPosition: {x: -381, y: 46}
   m_SizeDelta: {x: 29.78, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &402178651
@@ -548,6 +549,18 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 402178649}
   m_CullTransparentMesh: 0
+--- !u!114 &402178653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 402178649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0e3525e97716cb4989c5e9fc903da3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 402178651}
 --- !u!1 &438006398
 GameObject:
   m_ObjectHideFlags: 0

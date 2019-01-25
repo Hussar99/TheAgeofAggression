@@ -29329,7 +29329,7 @@ MonoBehaviour:
   playersBullet: {fileID: 1127859522421916, guid: 839e707ec2fddff4fb274ab66ac53b76,
     type: 2}
   fireRate: 0.5
-  livesObject: {fileID: 0}
+  livesObject: {fileID: 5230524}
 --- !u!50 &1608155808
 Rigidbody2D:
   serializedVersion: 4

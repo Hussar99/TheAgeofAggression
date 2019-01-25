@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayersBullet : MonoBehaviour {
-
+    public bool isPlayer = true;
     public float velX = 100f;
     float velY = 0f;
 
-    Rigidbody2D rb;
+    Rigidbody2D rb; // Use bigger abbriviations for better context. fore example: rigidBody
 
 
     // Unity calls this function automatically
@@ -17,33 +17,21 @@ public class PlayersBullet : MonoBehaviour {
 
         //Check if the thing that we collided with is the player
         Player playerScript = collsion.collider.GetComponent<Player>();
-        Enemy enemyScript = collsion.collider.GetComponent<Enemy>();
+        
 
         // Only do something if the thing we run into was in fact the player (aka playerScript is not null)
 
-        if (playerScript != null)
+        if (playerScript != null && isPlayer == false)
         {
             // We DID hit the player!
 
             //KILL THEM!
             playerScript.Kill();
+
+
+            
         }
-
-
         
-
-
-        if (enemyScript != null)
-        {
-            // We DID hit the enemy!
-
-            // Kill the bullet object!!!
-            Destroy(gameObject);
-
-        }
-
-
-
     }
 
 
@@ -62,4 +50,13 @@ public class PlayersBullet : MonoBehaviour {
         // Destroys players bullet after 3 seconds
         Destroy(gameObject, 1f);
 	}
+
+
+
+
+
+
+
+
+
 }

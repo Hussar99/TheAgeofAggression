@@ -52,7 +52,7 @@ public class Lives : MonoBehaviour {
         PlayerPrefs.SetInt("lives", numericalLives);
     }
 
-
+    // What happens when player has less than 0 lives.
     public bool isGameOver()
     {
         if (numericalLives <= 0)
